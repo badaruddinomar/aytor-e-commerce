@@ -178,6 +178,9 @@ footer {
             font-size: 16px;
             font-weight: 400;
             line-height: 28px;
+            @include phoneMedia {
+              width: 150px;
+            }
           }
           button {
             border: none;
