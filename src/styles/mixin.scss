@@ -1,0 +1,68 @@
+@mixin flex-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+// section heading--
+@mixin sectionHeading {
+  color: $text-color;
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 46px;
+  margin-bottom: 2.4rem;
+}
+
+// common button--
+@mixin button($bg, $border: 1px) {
+  color: $text-white;
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  border: $border solid $text-white;
+  padding: 13px 3.5rem;
+  background: $bg;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.23s;
+  display: flex;
+  align-items: center;
+  &:hover {
+    transform: translateY(2px);
+  }
+  .icon {
+    font-size: 3rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin tabletMedia {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+@mixin phoneMedia {
+  @media (max-width: 650px) {
+    @content;
+  }
+}

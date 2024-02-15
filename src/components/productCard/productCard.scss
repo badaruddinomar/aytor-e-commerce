@@ -1,0 +1,96 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.product-card {
+  width: 312px;
+  border: 1px solid #f1f3f4;
+  border-top: none;
+  padding-bottom: 26px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $shadow;
+  margin: 1rem;
+  @media (max-width: 300px) {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: 310px;
+    max-height: 310px;
+    object-fit: cover;
+    display: inline-block;
+  }
+  .price {
+    color: $text-color;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .title {
+    text-align: center;
+    color: $text-color;
+    font-family: $font-secondary;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 11px 0;
+  }
+  .star-icons-div {
+    @include flex-center;
+    .icon {
+      color: gold;
+    }
+  }
+  // icons--
+  .icons {
+    @include flex-col;
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    visibility: hidden;
+    transition: all 0.5s;
+    opacity: 0;
+    .tooltip {
+      font-size: 1.8rem;
+      display: block;
+      font-family: $font-secondary;
+    }
+    .icon {
+      color: $text-white;
+      margin: 0.5rem 0;
+      background: $primary-color;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: block;
+      width: 30px;
+      height: 30px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+  }
+  // discount text --
+  .discount {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    transform: rotate(-90deg);
+    background: $primary-color;
+    border-radius: 13px 0 0 13px;
+    p {
+      color: $text-white;
+      font-family: $font-secondary;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      padding: 0.3rem 1.5rem;
+    }
+  }
+  &:hover .icons {
+    transition: all 0.23s;
+    visibility: visible;
+    opacity: 1;
+  }
+}

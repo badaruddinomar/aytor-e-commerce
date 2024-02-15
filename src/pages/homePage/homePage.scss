@@ -1,0 +1,700 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.home-page {
+  width: 100%;
+  // SECTION-01: home banner style starts from here--
+  .home-banner {
+    width: 100%;
+
+    .slider {
+      .slide {
+        background-image: url("./../../images/banner-01.png");
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        @include tabletMedia {
+          height: 600px;
+        }
+        @include phoneMedia {
+          background-position: 60%;
+        }
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+      .slick-dots {
+        position: absolute;
+        bottom: 10%;
+        left: 6%;
+        width: 100px;
+        text-align: start;
+        @include tabletMedia {
+          bottom: 5%;
+        }
+        @include phoneMedia {
+          bottom: 20%;
+        }
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 5px;
+          padding: 0;
+          cursor: pointer;
+
+          button {
+            display: block;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+            text-align: center;
+
+            &::before {
+              width: 10.909px;
+              height: 6px;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              content: "";
+              opacity: 0.25;
+              background: $text-white;
+              border-radius: 5px;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+          }
+        }
+        .slick-active button::before {
+          width: 28.364px;
+          height: 6px;
+          border-radius: 5px;
+          background: $primary-color;
+          text-align: center;
+        }
+      }
+
+      .slide {
+        position: relative;
+
+        .content {
+          position: absolute;
+          top: 50%;
+          left: 20%;
+          transform: translate(-50%, -20%);
+          @include tabletMedia {
+            top: 50%;
+            left: 30%;
+            transform: translateX(-50%, -30%);
+          }
+          @include phoneMedia {
+            top: 50%;
+            left: 20%;
+            transform: translate(-20%, -50%);
+          }
+
+          h6 {
+            color: $text-color;
+            font-family: $font-secondary;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 28px;
+            @include phoneMedia {
+              font-size: 1.6rem;
+            }
+          }
+          h1 {
+            color: $text-color;
+            font-family: $font-secondary;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 74px;
+            margin-bottom: 16px;
+            margin-top: 10px;
+            @include tabletMedia {
+              font-size: 5rem;
+            }
+            @include phoneMedia {
+              font-size: 4rem;
+              line-height: 1.5;
+            }
+          }
+          p {
+            color: $text-color;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            margin-bottom: 30px;
+            @include phoneMedia {
+              font-size: 14px;
+            }
+          }
+          .banner-btn-div {
+            display: inline-block;
+            .banner-btn {
+              @include flex-row;
+              color: $text-white;
+              padding: 13px 20px;
+              background: $primary-color;
+              text-align: center;
+              font-family: $font-secondary;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 30px;
+              transition: all 0.23s;
+              .icon {
+                font-size: 18px;
+                margin-left: 0.5rem;
+                color: $text-white;
+                cursor: pointer;
+              }
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // SECTION-02: home featured product style starts from here--
+  .home-feature {
+    width: 100%;
+    padding: 100px 0;
+    @include flex-center;
+    @include phoneMedia {
+      padding: 50px 0;
+    }
+
+    .home-feature-container {
+      width: 100%;
+      padding: 0 6rem;
+      @include flex-center;
+      @include tabletMedia {
+        flex-direction: column;
+        padding: 0 2rem;
+      }
+
+      .left-div {
+        @include flex-col;
+        @include tabletMedia {
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: 312px;
+          display: block;
+          @include tabletMedia {
+            margin-bottom: 1rem;
+            width: 100%;
+          }
+        }
+      }
+      .right-div {
+        img {
+          width: 100%;
+          display: block;
+        }
+        .img-div .content {
+          width: 80%;
+          height: 80%;
+        }
+      }
+      .img-div {
+        position: relative;
+        @include flex-center;
+
+        .content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: $text-color;
+          background: rgba($color: #000000, $alpha: 0.2);
+          width: 90%;
+          height: 80%;
+          @include flex-col;
+          z-index: 10;
+          transition: all 0.23s;
+          visibility: hidden;
+          opacity: 0;
+
+          h3 {
+            color: $text-white;
+            text-align: center;
+            font-family: $font-secondary;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 40px;
+          }
+
+          a {
+            @include flex-center;
+            opacity: 1;
+            color: $text-white;
+            text-align: center;
+            font-family: $font-secondary;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 28px;
+            z-index: 100;
+          }
+        }
+        &:hover .content {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  // SECTION-03: new arriavles section styles sarts from here--
+  .new-arrivales {
+    width: 100%;
+    @include flex-center;
+    // container--
+    .container {
+      width: 100%;
+      padding: 100px 100px;
+      @include tabletMedia {
+        padding: 50px 2rem;
+      }
+      h2 {
+        @include sectionHeading;
+      }
+    }
+    // slider--
+    .slider {
+      width: 100%;
+      @include flex-row;
+      @include tabletMedia {
+        justify-content: center;
+      }
+    }
+  }
+  // SECTION-04: discount section styles starts from here--
+  .discount-section {
+    width: 100%;
+    background-image: url("./../../images/discount-banner.png");
+    padding: 10rem 10rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include tabletMedia {
+      padding: 50px 2rem;
+    }
+    h2 {
+      color: $text-white;
+      font-family: $font-secondary;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+    }
+    p {
+      color: $text-white;
+      font-family: $font-primary;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      margin: 3rem 0;
+    }
+    button {
+      @include button(transparent);
+    }
+  }
+  // SECTION-05: best product sections styles starts from here--
+  .best-product-section {
+    width: 100%;
+    padding: 10rem 10rem;
+    @include tabletMedia {
+      padding: 50px 2rem;
+    }
+    h2 {
+      color: $text-color;
+      text-align: center;
+      font-family: $font-secondary;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+      margin-bottom: 36px;
+    }
+    .container {
+      @include flex-row;
+      justify-content: center;
+    }
+    button {
+      @include button($primary-color);
+      margin: auto;
+      margin-top: 53px;
+    }
+  }
+  // SECTION-06: dealse section starts from here--
+  .deals-section {
+    width: 100%;
+    padding: 0 10rem;
+    margin-bottom: 5rem;
+    @include tabletMedia {
+      padding: 0 2rem;
+    }
+
+    h2 {
+      color: $text-color;
+      text-align: center;
+      font-family: $font-secondary;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+      margin-bottom: 34px;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0px 0px 70px 0px rgba(21, 26, 50, 0.08);
+      padding: 7.5rem 3.9rem;
+      margin-top: 68px;
+      @include tabletMedia {
+        margin-top: 100px;
+      }
+
+      .slider {
+        @include flex-row;
+        justify-content: center;
+        .slide {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          height: 485px;
+          width: 570px;
+          padding: 3.5rem 4rem;
+          margin: 0 26px;
+          @include phoneMedia {
+            width: 100%;
+          }
+          @include tabletMedia {
+            margin: 1rem 0;
+          }
+          .para1 {
+            color: $text-color;
+            font-family: $font-secondary;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+            margin-bottom: 1rem;
+          }
+          h3 {
+            color: $text-color;
+            font-family: $font-secondary;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 46px;
+            margin-bottom: 16px;
+          }
+          .para2 {
+            color: $text-color;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            margin-bottom: 19px;
+          }
+          .price {
+            color: $text-color;
+            font-family: $font-secondary;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 30px;
+            .old-price {
+              text-decoration: line-through;
+              margin-left: 1.3rem;
+            }
+          }
+          button {
+            margin-top: 4rem;
+            @include button($text-color, 0px);
+          }
+        }
+      }
+      .count-down-timer {
+        position: absolute;
+        top: -8%;
+        left: 50%;
+        padding: 1rem 8rem;
+        transform: translateX(-50%);
+        border-radius: 40px;
+        background: $text-white;
+        box-shadow: 0px 0px 10px 0px rgba(21, 26, 50, 0.1);
+        @include tabletMedia {
+          padding: 1rem 2rem;
+          top: -5%;
+        }
+        @include phoneMedia {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @include flex-row;
+        p {
+          @include flex-col;
+          color: $text-color;
+          font-family: $font-secondary;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 34px;
+          margin: 0 1rem;
+          @include phoneMedia {
+            font-size: 1.8rem;
+          }
+          .text {
+            color: $text-color;
+            text-align: center;
+            font-family: $font-secondary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+            @include phoneMedia {
+              font-size: 1.4rem;
+              line-height: 1.5;
+            }
+          }
+        }
+        .colon {
+          color: $primary-color;
+          font-size: 6rem;
+        }
+      }
+    }
+  }
+  // SECTION-07: special offers section starts from here--
+  .special-offer-section {
+    width: 100%;
+    height: 517px;
+    margin: 100px 0;
+    padding: 0 2rem;
+    @include flex-between;
+    @include tabletMedia {
+      margin: 50px 0;
+      height: auto;
+      @include flex-col;
+    }
+
+    .left-div {
+      background: #f1f3f4;
+      width: 50%;
+      height: 100%;
+      padding-left: 10rem;
+      padding-top: 115px;
+      padding-bottom: 115px;
+      @include tabletMedia {
+        width: 100%;
+      }
+      @include phoneMedia {
+        padding-left: 2rem;
+        padding-top: 115px;
+        padding-bottom: 115px;
+      }
+      .para-1 {
+        color: $text-color;
+        font-family: $font-secondary;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        margin-bottom: 1rem;
+      }
+      h3 {
+        color: $text-color;
+        font-family: $font-secondary;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 46px;
+        margin-bottom: 1.6rem;
+      }
+      .para-2 {
+        color: $text-color;
+        font-family: $font-primary;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        margin-bottom: 30px;
+      }
+      button {
+        @include button($primary-color, 0px);
+      }
+    }
+
+    .right-div {
+      width: 50%;
+      position: relative;
+      @include tabletMedia {
+        width: 100%;
+      }
+      img {
+        width: 100%;
+        height: 517px;
+        object-fit: cover;
+      }
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  // SECTION-08: latests news section styles starts from here--
+  .latest-news-section {
+    width: 100%;
+    padding: 0 10rem;
+    margin-bottom: 10rem;
+    @include tabletMedia {
+      padding: 0 2rem;
+    }
+    h3 {
+      color: $color-black;
+      text-align: center;
+      font-family: $font-secondary;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+      margin-bottom: 45px;
+    }
+    .blog-card-container {
+      width: 100%;
+      @include flex-row;
+      justify-content: center;
+      .blog-card {
+        width: 312px;
+        padding: 2rem;
+        box-shadow: $shadow;
+        margin: 1rem;
+        transition: all 0.23s;
+        @media (max-width: 300px) {
+          width: 100%;
+        }
+        &:hover h4 {
+          color: $primary-color;
+        }
+        img {
+          width: 100%;
+          height: 241px;
+          object-fit: cover;
+        }
+        h4 {
+          color: $color-black;
+          font-family: $font-secondary;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 30px;
+          margin-top: 1rem;
+          transition: all 0.23s;
+        }
+        .desc {
+          color: $color-black;
+          font-family: $font-primary;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 28px;
+        }
+        .card-footer {
+          @include flex-between;
+          margin: 1rem 0;
+        }
+        .link {
+          @include flex-row;
+          color: $color-black;
+          font-family: $font-secondary;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 28px;
+          transition: all 0.23s ease-in;
+          &:hover {
+            opacity: 0.9;
+            color: $primary-color;
+          }
+        }
+        .date {
+          color: $color-black;
+          font-family: $font-secondary;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  // SECTION-09: features section start from here--
+  .features-section {
+    position: relative;
+    margin-top: 20rem;
+    padding: 0 10rem;
+    width: 100%;
+    @include tabletMedia {
+      padding: 0 2rem;
+      margin: 10rem 0;
+    }
+
+    .container {
+      @include flex-between;
+      flex-wrap: wrap;
+      background: #fff;
+      box-shadow: $shadow;
+      position: absolute;
+      top: -8rem;
+      margin: auto;
+      @include tabletMedia {
+        margin: 0 2rem;
+        position: initial;
+        justify-content: center;
+      }
+      .feature {
+        padding: 2rem 4rem;
+        width: 320px;
+        @include flex-row;
+        @include tabletMedia {
+          padding: 2rem;
+        }
+        .icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          font-size: 2rem;
+          background: $primary-color;
+          color: white;
+          padding: 1rem;
+          margin-right: 1rem;
+        }
+        h4 {
+          color: $color-black;
+          font-family: $font-secondary;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 30px;
+        }
+        p {
+          color: $color-black;
+          font-family: $font-primary;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px;
+        }
+      }
+      .border {
+        width: 4px;
+        height: 100px;
+        background: #f1f1f1;
+        @include tabletMedia {
+          width: 0;
+        }
+      }
+    }
+  }
+}
